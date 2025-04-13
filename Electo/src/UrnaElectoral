@@ -1,0 +1,29 @@
+import java.util.*;
+
+public class UrnaElectoral {
+    private LinkedList<String> listaCandidatos;
+    private Stack<Integer> historialVotos;
+    private Queue<Integer> votosReportados;
+    private int idCounter;
+
+    public UrnaElectoral() {
+        this.listaCandidatos = new LinkedList<>();
+        this.historialVotos = new Stack<>();
+        this.votosReportados = new LinkedList<>();
+        this.idCounter = 1;
+    }
+
+    public Boolean verificarVotante(Votante votante) {
+        return votante.isHaVotado();
+    }
+
+    public void registrarVoto(Votante votante, int candidatoId) {
+        if (verificarVotante(votante)) {
+            System.out.println("El votante ya ha votado");
+            return;
+        }
+        historialVotos.push(candidatoId);
+        votante.setHaVotado(true);
+        System.out.println("Voto registrado exitosamente.");
+    }
+}
