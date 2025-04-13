@@ -1,5 +1,3 @@
-import java.util.LinkedList;
-import java.util.Queue;
 
 public class Voto {
     private int id;
@@ -11,7 +9,8 @@ public class Voto {
         this.id = id;
         this.votanteId = votanteId;
         this.candidatoId = candidatoId;
-
+       
+        // this.timestamp = LocalTime.now().toString();
     }
 
     public int getId() {
@@ -25,5 +24,15 @@ public class Voto {
     public int getCandidatoId() {
         return candidatoId;
     }
-}
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setVotanteId(int votanteId) {
+        this.votanteId =votanteId;
+    }
+    public void setCandidatoId(int candidatoId){
+        this.candidatoId = candidatoId;
+    }
+}
