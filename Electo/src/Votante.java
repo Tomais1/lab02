@@ -31,7 +31,7 @@ public class Votante {
         public void setNombre(String nombre) {
             this.nombre = nombre;
         }
-        public void settaVoto(Boolean yaVoto) {
+        public void setyaVoto(Boolean yaVoto) {
             this.yaVoto = yaVoto;
         }
     }
