@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class UrnaElectoral {
-    private LinkedList<String> listaCandidatos;
+    private LinkedList<Candidato> listaCandidatos;
     private Stack<Integer> historialVotos;
     private Queue<Integer> votosReportados;
     private int idCounter;
@@ -14,7 +14,7 @@ public class UrnaElectoral {
     }
 
     public Boolean verificarVotante(Votante votante) {
-        return votante.isHaVotado();
+        return votante.getyaVoto();
     }
 
     public void registrarVoto(Votante votante, int candidatoId) {
@@ -22,8 +22,57 @@ public class UrnaElectoral {
             System.out.println("El votante ya ha votado");
             return;
         }
-        historialVotos.push(candidatoId);
-        votante.setHaVotado(true);
+
+        // Buscar el candidato correspondiente
+        Candidato candidato = null;
+        for (Candidato c : listaCandidatos) {
+            if (c.getId() == candidatoId) {
+                candidato = c;
+                break;
+            }
+        }
+
+        if (candidato == null) {
+            System.out.println("Candidato no encontrado.");
+            return;
+        }
+
+        Voto voto = new Voto(idCounter, votante.getId(), candidatoId);
+        candidato.agregarVoto(voto);
+        historialVotos.push(idCounter);
+        votosReportados.add(idCounter); // si se quiere registrar altiro
+        votante.marcarComovotado();
         System.out.println("Voto registrado exitosamente.");
+        idCounter++;
     }
+    public void reportarVoto(Candidato candidato, int idVoto) {
+        if(votosReportados.contains(idVoto)) {
+            System.out.println("Fraude");
+            return;
+        }
+
+    Queue<Voto> votos = candidato.getVotosRecibidos();
+
+    if(!votos.contains(new Voto(idVoto, 0, 0))) {
+        System.out.println("El voto no esta en cola");
+        return;
+    }
+    votosReportados.add(idVoto);
+    System.out.println("Votos reportados para:" + candidato.getNombre());
+    }
+
+    public Map<String, Integer> obtenerResultados() {
+    Map<String, Integer> conteo = new HashMap<>();
+
+    for (Candidato candidato : listaCandidatos) {
+        int contador = 0;
+        for (Voto voto : candidato.getVotosRecibidos()) {
+            if (votosReportados.contains(voto.getId())) {
+                contador++;
+            }
+        }
+        conteo.put(candidato.getNombre(), contador);
+    }
+
+    return conteo;
 }
