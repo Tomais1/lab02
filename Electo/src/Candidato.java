@@ -41,6 +41,9 @@ public class Candidato {
         this.partido = partido;
     }
         public void setAgregarVotos(Queue<Voto> agregarVotos) {
-        this.agregarVotos = agregarVotos;
+        this.votosRecibidos = agregarVotos;
+    }
+        public void agregarVoto(Voto voto) { // un solo voto
+        this.votosRecibidos.add(voto);
     }
 }
