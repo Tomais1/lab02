@@ -8,10 +8,11 @@ public class Candidato {
     private String partido;
     private Queue<Voto> votosRecibidos;
 
-    public Candidato(int id, String nombre, String partido) {
+    public Candidato(int id, String nombre,String partido) {
+        
         this.id = id;
         this.nombre = nombre;
-        this.partido = partido;
+        this.partido = partido; 
         this.votosRecibidos = new LinkedList<>();
     }
 
@@ -39,9 +40,6 @@ public class Candidato {
     }
     public void setPartido(String partido){
         this.partido = partido;
-    }
-        public void setAgregarVotos(Queue<Voto> agregarVotos) {
-        this.votosRecibidos = agregarVotos;
     }
         public void agregarVoto(Voto voto) { // un solo voto
         this.votosRecibidos.add(voto);
