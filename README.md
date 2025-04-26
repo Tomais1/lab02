@@ -4,7 +4,7 @@
 Compilar-> javac Src/*.java
 ```
 
-El metodo main esta dentro de UrnaElectoral, ya que es la clase main.
+Para iniciar la Clase main
 
 ```bash
 Ejecutar -> java -cp Src Main
