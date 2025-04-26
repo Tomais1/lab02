@@ -17,6 +17,10 @@ public class UrnaElectoral {
         this.idCounter = 1;
     }
 
+    public void agregarCandidato(Candidato candidato) {
+        this.listaCandidatos.add(candidato);
+    }
+
     public Boolean verificarVotante(Votante votante) {
         return votante.getyaVoto();
     }
