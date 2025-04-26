@@ -1,4 +1,5 @@
-
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 public class Voto {
     private int id;
     private int votanteId;
@@ -9,9 +10,10 @@ public class Voto {
         this.id = id;
         this.votanteId = votanteId;
         this.candidatoId = candidatoId;
-       
-        // this.timestamp = LocalTime.now().toString();
-    }
+        
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss"); // Formato de hora
+            this.timestamp = LocalTime.now().format(formatter); // Asignar el timestamp actual en el formato deseado    
+        }
 
     public int getId() {
         return id;
