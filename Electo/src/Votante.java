@@ -3,10 +3,10 @@ public class Votante {
     private String nombre;
     private Boolean yaVoto;
 
-    public Votante(int id,String nombre,Boolean yaVoto) {
+    public Votante(int id,String nombre) {
         this.id = id;
         this.nombre = nombre;
-        this.yaVoto = yaVoto;
+        this.yaVoto = false;
         } 
         //getters
         public int getId() {
