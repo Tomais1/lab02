@@ -10,10 +10,10 @@ public class Voto {
         this.id = id;
         this.votanteId = votanteId;
         this.candidatoId = candidatoId;
-        
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:s a"); // Formato de hora
-            this.timestamp = LocalTime.now().format(formatter); // Asignar el timestamp actual en el formato deseado    
-        }
+       
+       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:s a"); // Formato de hora
+        this.timestamp = LocalTime.now().format(formatter); // Asignar el timestamp actual en el formato deseado    
+    }
 
     public int getId() {
         return id;
@@ -27,6 +27,10 @@ public class Voto {
         return candidatoId;
     }
 
+    public String getTimestamp() {
+    return timestamp;
+}
+
     public void setId(int id) {
         this.id = id;
     }
@@ -38,3 +42,4 @@ public class Voto {
         this.candidatoId = candidatoId;
     }
 }
+
