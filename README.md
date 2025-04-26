@@ -1,13 +1,13 @@
 # lab02
 
 ```bash
-Compilar-> javac Src/*.java
+Compilar-> javac src/*.java
 ```
 
 Para iniciar la Clase main
 
 ```bash
-Ejecutar -> java -cp Src Main
+Ejecutar -> java -cp src Main
 ```
 
 Deberia salir asi:
