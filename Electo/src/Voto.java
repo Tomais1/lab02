@@ -11,7 +11,7 @@ public class Voto {
         this.votanteId = votanteId;
         this.candidatoId = candidatoId;
         
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss"); // Formato de hora
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:s a"); // Formato de hora
             this.timestamp = LocalTime.now().format(formatter); // Asignar el timestamp actual en el formato deseado    
         }
 
